@@ -1,0 +1,2434 @@
+/* =========================================================
+   CAMPUSSAFE - MAIN STYLESHEET
+   Home Page + Dashboard
+   ========================================================= */
+
+/* =========================
+   CSS VARIABLES
+   ========================= */
+
+:root {
+    --navy: #0b1f3a;
+    --navy-light: #15345c;
+    --blue: #1d72e8;
+    --blue-dark: #155fc2;
+    --blue-light: #eaf3ff;
+
+    --white: #ffffff;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+
+    --text: #172033;
+    --text-light: #667085;
+    --text-muted: #98a2b3;
+
+    --border: #d0d5dd;
+    --border-light: #e5e7eb;
+
+    --success: #198754;
+    --success-bg: #e8f7ef;
+
+    --warning: #b7791f;
+    --warning-bg: #fff6df;
+
+    --danger: #c92a2a;
+    --danger-bg: #fdecec;
+
+    --info: #1769aa;
+    --info-bg: #e8f2ff;
+
+    --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.06);
+    --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0 16px 40px rgba(16, 24, 40, 0.12);
+
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 18px;
+
+    --transition: 0.25s ease;
+}
+
+html, body {
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
+.main-content {
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.dashboard-page,
+.dashboard-section,
+.page-section {
+    overflow: visible !important;
+}
+/* =========================
+   RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+
+/* =========================
+   TOP NAVIGATION
+   ========================= */
+
+body > .topbar {
+    width: 100%;
+    min-height: 72px;
+
+    background: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    border-bottom: 1px solid var(--border-light);
+
+    position: relative;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--navy);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+
+.brand::before {
+    content: "C";
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue);
+    color: var(--white);
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+body > .topbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+body > .topbar nav a {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+body > .topbar nav a:hover {
+    color: var(--blue);
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    min-height: 620px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            #123b6b 55%,
+            var(--blue) 100%
+        );
+
+    color: var(--white);
+
+    display: flex;
+    align-items: center;
+
+    padding: 90px 7%;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -150px;
+    top: -120px;
+
+    border: 80px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+}
+
+.hero-content {
+    max-width: 720px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.7rem);
+    line-height: 1.05;
+
+    margin-bottom: 22px;
+
+    letter-spacing: -2px;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: rgba(255, 255, 255, 0.86);
+
+    font-size: 1.08rem;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.login-btn,
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    background: var(--blue);
+    color: var(--white);
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.login-btn:hover,
+.primary-btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    background: var(--white);
+    color: var(--navy);
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.secondary-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.outline-light-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: var(--radius-sm);
+
+    background: transparent;
+    color: var(--white);
+
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.outline-light-btn:hover {
+    background: var(--white);
+    color: var(--navy);
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
+
+section {
+    padding: 85px 7%;
+}
+
+.section-heading {
+    max-width: 95%;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.section-label {
+    display: block;
+
+    color: var(--blue);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+
+    line-height: 1.2;
+
+    margin-bottom: 14px;
+}
+
+.section-intro {
+    color: var(--text-light);
+
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.about {
+    background: var(--white);
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+
+/* =========================
+   FEATURES
+   ========================= */
+
+.features-section {
+    background: var(--background);
+}
+
+.features-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+.feature-card {
+    background: var(--white);
+
+    padding: 30px 24px;
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+
+    border-color: #c7dcfa;
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue-light);
+    color: var(--blue);
+
+    border-radius: 12px;
+
+    font-size: 1.3rem;
+    font-weight: 800;
+
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: var(--navy);
+
+    font-size: 1.08rem;
+
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--text-light);
+
+    font-size: 0.92rem;
+}
+
+
+/* =========================
+   HOW IT WORKS
+   ========================= */
+
+.how-section {
+    background: var(--white);
+}
+
+.steps-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.step-card {
+    position: relative;
+
+    padding: 30px;
+
+    background: var(--background);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius);
+}
+
+.step-number {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue);
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    color: var(--navy);
+
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    color: var(--text-light);
+
+    font-size: 0.92rem;
+}
+
+
+/* =========================
+   CTA
+   ========================= */
+
+.cta-section {
+    padding-top: 30px;
+    padding-bottom: 85px;
+
+    background: var(--white);
+}
+
+.cta-content {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 55px 45px;
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    color: var(--white);
+
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+
+    margin-bottom: 12px;
+}
+
+.cta-content p {
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: var(--navy);
+
+    color: var(--white);
+
+    padding: 50px 7% 20px;
+}
+
+.footer-content {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.footer-content p {
+    max-width: 450px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.9rem;
+
+    margin-top: 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 22px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 0.9rem;
+
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    max-width: 1150px;
+
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: var(--navy);
+
+    color: var(--white);
+
+    padding: 24px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 100;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 12px 25px;
+
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.sidebar-logo-mark {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue);
+
+    border-radius: 9px;
+
+    font-weight: 800;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: rgba(255, 255, 255, 0.1);
+
+    color: var(--white);
+}
+
+.menu-icon {
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 1rem;
+}
+
+#accountButtons {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+#accountButtons button {
+    width: 100%;
+
+    min-height: 42px;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+#switchAccountBtn {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--white);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#switchAccountBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#logoutBtn {
+    background: transparent;
+
+    color: #ffb4b4;
+
+    border: 1px solid rgba(255, 180, 180, 0.25);
+}
+
+#logoutBtn:hover {
+    background: rgba(255, 90, 90, 0.1);
+}
+
+
+/* =========================
+   MAIN DASHBOARD AREA
+   ========================= */
+
+.main-content {
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    background: var(--background);
+}
+
+.main-content > .topbar {
+    min-height: 72px;
+
+    padding: 0 32px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 50;
+}
+
+.topbar-title h2 {
+    color: var(--navy);
+
+    font-size: 1.15rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.user-info-text {
+    text-align: right;
+}
+
+.user-info-text strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 0.9rem;
+}
+
+.user-info-text span {
+    color: var(--text-light);
+
+    font-size: 0.78rem;
+}
+
+.user-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue-light);
+    color: var(--blue);
+
+    border-radius: 50%;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   DASHBOARD PAGES
+   ========================= */
+
+.dashboard-page {
+    padding: 30px;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+.dashboard-label {
+    color: var(--blue);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 5px;
+}
+
+.welcome {
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            #1b4d85
+        );
+
+    color: var(--white);
+
+    padding: 30px;
+
+    border-radius: var(--radius-lg);
+
+    margin-bottom: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+.welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.welcome h1 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+
+    margin-bottom: 5px;
+}
+
+.welcome p {
+    color: rgba(255, 255, 255, 0.76);
+
+    font-size: 0.95rem;
+}
+
+.welcome-symbol {
+    width: 75px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 50%;
+
+    font-size: 1.8rem;
+}
+
+
+/* =========================
+   STATISTICS
+   ========================= */
+
+.stats-container {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    background: var(--white);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius);
+
+    padding: 22px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+    color: var(--text-light);
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.stat-card .stat-number {
+    color: var(--navy);
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   DASHBOARD SECTIONS
+   ========================= */
+
+.dashboard-section {
+    background: var(--white);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-sm);
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-header h2 {
+    color: var(--navy);
+
+    font-size: 1.05rem;
+}
+
+.section-header p {
+    color: var(--text-light);
+
+    font-size: 0.82rem;
+
+    margin-top: 2px;
+}
+
+.access-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 50px;
+
+    background: var(--info-bg);
+
+    color: var(--info);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   TABLES
+   ========================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+}
+
+th {
+    background: #f8fafc;
+
+    color: var(--text-light);
+
+    text-align: left;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    padding: 13px 18px;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+td {
+    padding: 15px 18px;
+
+    color: var(--text);
+
+    font-size: 0.85rem;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #fafcff;
+}
+
+
+/* =========================
+   STATUS BADGES
+   ========================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    border-radius: 50px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+.status-pending {
+    background: var(--warning-bg);
+
+    color: var(--warning);
+}
+
+.status-investigating {
+    background: var(--info-bg);
+
+    color: var(--info);
+}
+
+.status-resolved {
+    background: var(--success-bg);
+
+    color: var(--success);
+}
+
+.status-rejected {
+    background: var(--danger-bg);
+
+    color: var(--danger);
+}
+
+
+/* =========================
+   FORMS
+   ========================= */
+
+.form-container {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    color: var(--text);
+
+    font-size: 0.84rem;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 12px;
+
+    background: var(--white);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+
+    box-shadow: 0 0 0 3px rgba(29, 114, 232, 0.1);
+}
+
+.form-help {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    margin-top: 5px;
+}
+
+.required {
+    color: var(--danger);
+}
+
+
+/* =========================
+   REPORT FORM
+   ========================= */
+
+.report-notice {
+    margin: 20px 25px 0;
+
+    padding: 14px 16px;
+
+    background: var(--blue-light);
+
+    border: 1px solid #cfe1fb;
+
+    border-radius: var(--radius-sm);
+
+    color: var(--info);
+
+    font-size: 0.82rem;
+}
+
+.report-submit {
+    display: flex;
+    justify-content: flex-end;
+
+    padding-top: 5px;
+}
+
+.report-submit button {
+    min-width: 160px;
+}
+
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.profile-container {
+    padding: 25px;
+}
+
+.profile-card {
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 30px;
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 50%;
+
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.profile-main h2 {
+    color: var(--navy);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 3px;
+}
+
+.profile-main > p {
+    color: var(--text-light);
+
+    font-size: 0.88rem;
+
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px 25px;
+}
+
+.profile-detail {
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+.profile-detail span {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.74rem;
+
+    margin-bottom: 3px;
+}
+
+.profile-detail strong {
+    color: var(--text);
+
+    font-size: 0.88rem;
+}
+
+
+/* =========================
+   EDIT PROFILE
+   ========================= */
+
+#editProfileSection {
+    margin-top: 25px;
+}
+
+#editProfileSection h3 {
+    color: var(--navy);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 18px;
+}
+
+.profile-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.profile-actions button {
+    min-height: 42px;
+
+    padding: 9px 18px;
+
+    border-radius: var(--radius-sm);
+
+    font-weight: 700;
+}
+
+.save-profile-btn {
+    background: var(--blue);
+
+    color: var(--white);
+
+    border: 1px solid var(--blue);
+}
+
+.save-profile-btn:hover {
+    background: var(--blue-dark);
+}
+
+.cancel-profile-btn {
+    background: var(--white);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+}
+
+.cancel-profile-btn:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================
+   ROLE FIELDS
+   ========================= */
+
+.role-fields {
+    margin-top: 5px;
+
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius);
+
+    margin-bottom: 20px;
+}
+
+.role-fields-header {
+    margin-bottom: 15px;
+}
+
+.role-fields-header h4 {
+    color: var(--navy);
+
+    font-size: 0.92rem;
+}
+
+.role-fields-header p {
+    color: var(--text-light);
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================
+   PASSWORD REQUIREMENTS
+   ========================= */
+
+.password-requirements {
+    margin-top: 8px;
+
+    padding: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-sm);
+}
+
+.password-requirements p {
+    color: var(--text-light);
+
+    font-size: 0.76rem;
+
+    margin-bottom: 5px;
+}
+
+.password-requirements ul {
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 4px 12px;
+}
+
+.password-requirements li {
+    color: var(--text-muted);
+
+    font-size: 0.73rem;
+}
+
+.password-requirements li.valid {
+    color: var(--success);
+}
+
+.password-requirements li.valid::before {
+    content: "✓ ";
+
+    font-weight: 800;
+}
+
+.password-requirements li.invalid::before {
+    content: "• ";
+
+    color: var(--text-muted);
+}
+
+
+/* =========================
+   EMPTY STATES
+   ========================= */
+
+.empty-state {
+    padding: 45px 20px;
+
+    text-align: center;
+}
+
+.empty-state h3 {
+    color: var(--navy);
+
+    font-size: 1rem;
+
+    margin-bottom: 5px;
+}
+
+.empty-state p {
+    color: var(--text-light);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   ERROR / SUCCESS MESSAGES
+   ========================= */
+
+.error-message {
+    padding: 10px 12px;
+
+    margin-bottom: 15px;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--danger-bg);
+
+    color: var(--danger);
+
+    font-size: 0.82rem;
+}
+
+.success-message {
+    padding: 10px 12px;
+
+    margin-bottom: 15px;
+
+    border-radius: var(--radius-sm);
+
+    background: var(--success-bg);
+
+    color: var(--success);
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    body > .topbar {
+        padding: 0 5%;
+    }
+
+    body > .topbar nav {
+        gap: 14px;
+    }
+
+    .hero {
+        padding: 75px 6%;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        padding: 15px;
+    }
+
+    .sidebar .logo {
+        padding: 5px 10px 15px;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+    }
+
+    .sidebar-menu a {
+        flex: 1;
+
+        min-width: 130px;
+
+        justify-content: center;
+    }
+
+    #accountButtons {
+        margin-top: 15px;
+
+        padding-top: 15px;
+
+        flex-direction: row;
+    }
+
+    #accountButtons button {
+        flex: 1;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .main-content > .topbar {
+        position: relative;
+    }
+
+    .dashboard-page {
+        padding: 22px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    body > .topbar {
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    body > .topbar nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        padding: 40px 25px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+    .main-content > .topbar {
+        padding: 12px 18px;
+    }
+
+    .topbar-title h2 {
+        font-size: 1rem;
+    }
+
+    .user-info-text {
+        display: none;
+    }
+
+    .dashboard-page {
+        padding: 15px;
+    }
+
+    .welcome {
+        padding: 25px 20px;
+    }
+
+    .welcome-content {
+        align-items: flex-start;
+    }
+
+    .welcome-symbol {
+        width: 55px;
+        height: 55px;
+
+        font-size: 1.3rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .profile-avatar {
+        margin: auto;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions button {
+        width: 100%;
+    }
+
+    .password-requirements ul {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-menu {
+        flex-direction: column;
+    }
+
+    .sidebar-menu a {
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+    #accountButtons {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .dashboard-page {
+        padding: 12px;
+    }
+
+    .form-container,
+    .profile-container {
+        padding: 18px;
+    }
+
+    .welcome h1 {
+        font-size: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+}
+.communication-message {
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.communication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.communication-header strong {
+    font-weight: 600;
+}
+
+.communication-header small {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.communication-message p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   DELETE ACCOUNT SECTION
+========================================== */
+
+.delete-account-section {
+    margin-top: 30px;
+    padding: 24px;
+    border: 1px solid #e2b8b8;
+    border-radius: 8px;
+    background: #fffafa;
+}
+
+.delete-account-section h3 {
+    color: #a52828;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.delete-account-section p {
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.delete-account-section select,
+.delete-account-section textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.delete-account-btn {
+    background: #b42323;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 18px;
+    cursor: pointer;
+}
+
+.delete-account-btn:hover {
+    background: #8f1919;
+}
+
+#deleteAccountFormSection {
+    margin-top: 22px;
+}
+
+#deleteAccountForm .profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#deleteAccountForm .profile-buttons button {
+    margin: 0;
+}
+
+/* ==========================================
+   REGISTRATION SECURITY QUESTIONS
+========================================== */
+
+.security-questions-registration {
+    margin: 22px 0;
+    padding: 18px;
+    border: 1px solid #d9e0eb;
+    border-radius: 8px;
+}
+
+.security-questions-registration h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.security-questions-registration p,
+.security-questions-registration small {
+    line-height: 1.6;
+}
+
+.security-questions-registration hr {
+    border: 0;
+    border-top: 1px solid #e0e5ed;
+    margin: 20px 0;
+}
+
+.security-questions-registration select,
+.security-questions-registration input {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.security-questions-registration .password-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.security-questions-registration .password-wrapper input {
+    flex: 1;
+    min-width: 0;
+}
+
+.security-questions-registration .toggle-password {
+    flex-shrink: 0;
+    cursor: pointer;
+}
+/* Fix table overflow inside cards */
+.table-container,
+.dashboard-section .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-section {
+    overflow: hidden;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    white-space: nowrap;
+    padding: 12px 14px;
+}
+
+/* Keep the card corners clean while scrolling */
+.dashboard-section {
+    border-radius: 12px;
+    overflow: hidden;
+}
+/* Stack buttons vertically inside My Reports table cells */
+
+#myReportsTable .investigation-column,
+#myReportsTable .history-column,
+#myReportsTable .security-communication-column {
+vertical-align: top;
+}
+
+#myReportsTable .investigation-column .investigation-btn,
+#myReportsTable .history-column .investigation-btn,
+#myReportsTable .security-communication-column .investigation-btn {
+display: block;
+width: 100%;
+margin: 0 0 8px 0;
+box-sizing: border-box;
+}
+
+#myReportsTable .investigation-column .investigation-btn:last-child,
+#myReportsTable .history-column .investigation-btn:last-child,
+#myReportsTable .security-communication-column .investigation-btn:last-child {
+margin-bottom: 0;
+}
+
+
+/* Reporter question reply panel */
+#reporterQuestionReplyPanel {
+    display: none;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    z-index: 101;
+    margin-bottom: 25px;
+}
+
+#reporterQuestionReplyPanel .investigation-details {
+    display: block;
+    padding: 22px;
+}
+
+#reporterQuestionReplyPanel .section-header {
+    display: flex;
+}
+
+#reporterQuestionReplyPanel textarea {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+}
+
+/* ==========================================
+   CAMPUSSAFE DASHBOARD STRUCTURE
+   Layout only — preserve existing colours
+========================================== */
+
+/* Arrange dashboard navigation horizontally */
+.sidebar {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Navigation items in a horizontal row */
+.sidebar-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sidebar-menu a {
+    width: auto;
+    flex: 1 1 100px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Main content uses the full page width */
+.main-content {
+    margin-left: 0;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Keep dashboard content within the screen */
+.dashboard-page {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+/* Statistics displayed in two columns */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.stat-card {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent wide report tables from stretching the page */
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Keep account buttons in a row where space allows */
+#accountButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Smaller phone adjustments */
+@media (max-width: 420px) {
+    .stats-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .sidebar-menu {
+        gap: 6px;
+    }
+
+    .sidebar-menu a {
+        flex: 1 1 90px;
+        padding: 10px 6px;
+    }
+}
+
+/* Arrange dashboard navigation in two columns */
+
+.sidebar-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.sidebar-menu a {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 6px;
+}
+
+/* Keep two buttons per row on phones */
+@media (max-width: 650px) {
+    .sidebar-menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .sidebar-menu a {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+    }
+}
+
+/* Stack buttons vertically in the Monitoring table */
+#monitoringReportsTable td:last-child {
+    vertical-align: top;
+}
+
+#monitoringReportsTable td:last-child .investigation-btn {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 8px 0;
+}
+
+/* Stack communication items vertically in My Reports */
+.security-communication-column {
+    vertical-align: top;
+}
+
+.security-communication-column .investigation-btn {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 8px 0;
+}
+
+.security-communication-column {
+    line-height: 1.6;
+}
+
+/* ==========================================
+   STACK MONITORING TABLE ACTIONS VERTICALLY
+========================================== */
+
+#monitoringReportsTable td:last-child .investigation-btn {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 8px 0;
+}
+
+/* ==========================================
+   STACK MY REPORTS COMMUNICATION ITEMS
+========================================== */
+
+#myReportsTable td.security-communication-column {
+    vertical-align: top;
+}
+
+#myReportsTable td.security-communication-column .investigation-btn {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 8px 0;
+}
+
+
+/* ==========================================
+   FIXED DASHBOARD WELCOME CARD
+========================================== */
+
+.welcome {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding: 30px;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.dashboard-label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.welcome-content h1 {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px;
+    line-height: 1.4;
+}
+
+.welcome-content p {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    line-height: 1.7;
+}
+
+.welcome-content .login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+
+    margin-top: 0;
+    white-space: normal;
+    text-align: center;
+}
+
+.welcome-symbol {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3rem;
+    line-height: 1;
+
+    margin-top: 5px;
+}
+
+/* MOBILE SCREEN */
+
+@media (max-width: 600px) {
+    .welcome {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .welcome-content {
+        flex: 1 1 auto;
+    }
+
+    .welcome-content h1 {
+        font-size: 1.5rem;
+        overflow-wrap: anywhere;
+    }
+
+    .welcome-content p {
+        font-size: 0.9rem;
+    }
+
+    .welcome-symbol {
+        font-size: 2.2rem;
+    }
+}
+/* ==========================================
+   CAMPUSSAFE SECTION VISIBILITY FIX
+========================================== */
+
+/* Hide dashboard sections by default. */
+#dashboard,
+#report,
+#myReports,
+#monitoring,
+#profile {
+    display: none;
+}
+
+/* Show only the active dashboard section. */
+#dashboard.active-page,
+#report.active-page,
+#myReports.active-page,
+#monitoring.active-page,
+#profile.active-page {
+    display: block;
+}
+/* Stack investigation items vertically */
+#myReports .investigation-column .investigation-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#myReports .investigation-column .investigation-btn {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+}
+

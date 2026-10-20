@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - CampusSafe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         SIDEBAR
+    =========================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="sidebar-logo-mark">
+                CS
+            </div>
+
+            <div>
+
+                <h2>
+                    CampusSafe
+                </h2>
+
+                <p>
+                    Security System
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR NAVIGATION -->
+
+        <nav class="sidebar-menu">
+    <a href="#dashboard" class="active" data-section="dashboard">
+        <span class="menu-icon">⌂</span>
+        <span>Dashboard</span>
+    </a>
+    <a href="#report" data-section="report">
+        <span class="menu-icon">+</span>
+        <span>Report Incident</span>
+    </a>
+    <a href="#myReports" data-section="myReports">
+        <span class="menu-icon">▤</span>
+        <span>My Reports</span>
+    </a>
+    <a href="#monitoring" data-section="monitoring" id="monitoringNavLink" style="display:none">
+        <span class="menu-icon">🛡</span>
+        <span>Monitoring</span>
+    </a>
+    <a href="#profile" data-section="profile">
+        <span class="menu-icon">●</span>
+        <span>My Profile</span>
+    </a>
+</nav>
+        <!-- ACCOUNT BUTTONS -->
+        <div id="accountButtons">
+
+
+        <button
+                type="button"
+                id="switchAccountBtn"
+            >
+             🔄 Switch Account
+            </button>
+
+
+            <button
+                type="button"
+             id="logoutBtn"
+         >
+              🚪 Logout
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================
+             TOP BAR
+        =================================== -->
+
+        <header class="topbar dashboard-topbar">
+
+
+            <div class="topbar-title">
+
+                <span>
+                    CAMPUSSAFE
+                </span>
+
+                <h3>
+                    Campus Security Dashboard
+                </h3>
+
+            </div>
+
+
+
+            <!-- USER INFORMATION -->
+
+            <div class="user-info">
+
+
+                <div
+                    class="user-avatar"
+                    id="userAvatar"
+                >
+                    U
+                </div>
+
+
+                <div class="user-details">
+
+                    <strong id="loggedUser">
+                        User
+                    </strong>
+
+                    <small id="loggedRole">
+                        Campus User
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+<!-- ==========================================
+     DASHBOARD HOME
+=========================================== -->
+
+<section
+    id="dashboard"
+    class="dashboard-page"
+>
+
+    <!-- WELCOME CARD -->
+
+    <section class="welcome">
+
+        <div class="welcome-content">
+
+            <span class="dashboard-label">
+                CAMPUS SECURITY
+            </span>
+
+            <h1>
+                Welcome,
+                <span id="welcomeUser">
+                    Campus User
+                </span>
+            </h1>
+
+            <p>
+                Monitor your security reports and
+                help contribute to a safer campus
+                environment.
+            </p>
+
+            <a
+                href="#report"
+                class="login-btn"
+                data-section-link="report"
+            >
+                + Report an Incident
+            </a>
+
+        </div>
+
+        <div class="welcome-symbol">
+            🛡️
+        </div>
+
+    </section>
+
+<!-- ==================================
+     NOTIFICATIONS
+=================================== -->
+
+<section
+    id="notificationSection"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                NOTIFICATIONS
+            </span>
+
+            <h2>
+                Notifications
+            </h2>
+
+            <p id="notificationMessage">
+                You have a new notification.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+            <!-- ==================================
+                 STATISTICS
+            =================================== -->
+
+            <section class="stats-container">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ▤
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Total Reports
+                        </h3>
+
+                        <strong id="totalReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Pending
+                        </h3>
+
+                        <strong id="pendingReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon investigating-icon">
+                        ◌
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Investigating
+                        </h3>
+
+                        <strong id="investigatingReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon resolved-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Resolved
+                        </h3>
+
+                        <strong id="resolvedReports">
+                            0
+
+
+                   </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================
+                 RECENT REPORTS
+            =================================== -->
+
+            <section
+                class="dashboard-section"
+                id="recentReportsSection"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            MONITORING
+                        </span>
+
+                        <h2>
+                            Recent Incident Reports
+                        </h2>
+
+                    </div>
+                    </section>
+                   <a
+    href="#monitoring"
+    class="access-badge"
+    id="monitoringAccessBadge"
+    data-section-link="monitoring"
+>
+    Monitoring Access
+</a>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Incident
+                                </th>
+
+                                <th>
+                                    Location
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Reporter
+                                </th>
+                              
+                                <th>
+                                    Status
+                                </th>
+                                
+                                <th>
+                                   Time
+                              </th>
+                               
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="reportsTable">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    No incident reports yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                        
+
+                    </table>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             MY REPORTS
+        =========================================== -->
+
+        <section
+            id="myReports"
+            class="dashboard-section page-section"
+        >
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        MY ACTIVITY
+                    </span>
+
+                    <h2>
+                        My Reports
+                    </h2>
+
+                    <p>
+                        View incidents you have submitted.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+    class="table-container"
+>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+    <th>
+        Incident
+    </th>
+
+    <th>
+        Location
+    </th>
+
+    <th>
+        Date
+    </th>
+
+    <th>
+        Time
+    </th>
+
+    <th>
+        Status
+    </th>
+
+    <th>
+        Report ID
+    </th>
+
+    <th>
+        Investigation
+    </th>
+    <th>
+        History 
+    </th>
+<th>
+        communication 
+    </th>
+
+    
+</tr>
+                    </thead>
+
+
+                    <tbody id="myReportsTable">
+
+                        <tr>
+
+                            <td colspan="9">
+                                You have not submitted
+                                any reports yet.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+<!-- ==========================================
+     REPORTER INVESTIGATION DETAILS
+=========================================== -->
+
+<div
+    id="reporterInvestigationPanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                INVESTIGATION DETAILS
+            </span>
+
+            <h2>
+                Investigation Update
+            </h2>
+
+            <p>
+                Details about the investigation of your
+                reported incident.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="investigation-details">
+
+        <div class="form-group">
+
+            <label>
+                Investigation Findings
+            </label>
+
+            <p id="reporterInvestigationFindings">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Action Taken
+            </label>
+
+            <p id="reporterInvestigationAction">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Investigation Outcome
+            </label>
+
+            <p id="reporterInvestigationOutcome">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Recovery / Collection Information
+            </label>
+
+            <p id="reporterRecoveryInformation">
+                —
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="closeReporterInvestigation"
+            class="login-btn"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     REPORTER QUESTION & REPLY
+=========================================== -->
+
+<div
+    id="reporterQuestionReplyPanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                SECURITY COMMUNICATION
+            </span>
+
+            <h2>
+                Question from Security
+            </h2>
+
+            <p>
+                Respond to the security officer's question
+                about your incident report.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="investigation-details">
+
+        <div class="form-group">
+
+            <label>
+                Security Officer's Question
+            </label>
+
+            <p id="securityQuestionText">
+                —
+            </p>
+
+        </div>
+
+
+        <form id="reporterReplyForm">
+
+            <input
+                type="hidden"
+                id="replyReportId"
+            >
+
+
+            <div class="form-group">
+
+                <label for="reporterReply">
+                    Your Reply
+                </label>
+
+                <textarea
+                    id="reporterReply"
+                    rows="5"
+                    placeholder="Type your response to the security officer..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Send Reply
+            </button>
+
+
+            <button
+                type="button"
+                id="closeReporterQuestionReply"
+                class="login-btn"
+            >
+                Close
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+        </section>
+
+
+<!-- ==========================================
+     SECURITY MONITORING
+=========================================== -->
+
+<section
+    id="monitoring"
+    class="dashboard-section page-section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                SECURITY MONITORING
+            </span>
+
+            <h2>
+                Campus Incident Monitoring
+            </h2>
+
+            <p>
+                Monitor and review security incidents
+                reported across the campus.
+            </p>
+
+        </div>
+
+        <span
+            class="access-badge"
+            id="monitoringRoleBadge"
+        >
+            Authorized
+        </span>
+
+    </div>
+
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ▤
+            </div>
+
+            <div>
+
+                <h3>
+                    Total Reports
+                </h3>
+
+                <strong id="monitoringTotalReports">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon pending-icon">
+                !
+            </div>
+
+            <div>
+
+                <h3>
+                    Pending
+                </h3>
+
+                <strong id="monitoringPendingReports">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon investigating-icon">
+                ◌
+            </div>
+
+            <div>
+
+                <h3>
+                    Investigating
+                </h3>
+
+                <strong id="monitoringInvestigatingReports">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon resolved-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h3>
+                    Resolved
+                </h3>
+
+                <strong id="monitoringResolvedReports">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Report ID
+                    </th>
+
+                    <th>
+                        Incident
+                    </th>
+
+                    <th>
+                        Location
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Time
+                    </th>
+
+                    <th>
+                        Reporter
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                     communication 
+                    </th>
+                    <th>
+                     Full Incident 
+                    </th>
+                    <th>
+                     Reporter Details 
+                    </th>
+                    <th>
+                     Investigation Update 
+                    </th>
+                    <th>
+                     Action 
+                    </th>
+                </tr>
+
+            </thead>
+
+
+            <tbody id="monitoringReportsTable">
+
+                <tr>
+
+                    <td colspan="12">
+                        No incident reports available.
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+    <!-- ==========================================
+     INVESTIGATION UPDATE FORM
+=========================================== -->
+
+<div
+    id="investigationUpdatePanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                INVESTIGATION UPDATE
+            </span>
+
+            <h2>
+                Update Investigation
+            </h2>
+
+            <p>
+                Record the findings and outcome of this
+                security investigation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <form id="investigationUpdateForm">
+
+        <input
+            type="hidden"
+            id="investigationReportId"
+        >
+
+
+        <div class="form-group">
+
+            <label for="investigationFindings">
+                Investigation Findings
+            </label>
+
+            <textarea
+                id="investigationFindings"
+                rows="4"
+                placeholder="Describe what was discovered during the investigation..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="investigationAction">
+                Action Taken
+            </label>
+
+            <textarea
+                id="investigationAction"
+                rows="4"
+                placeholder="Describe the action taken by the security personnel..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="investigationOutcome">
+                Investigation Outcome
+            </label>
+
+            <textarea
+                id="investigationOutcome"
+                rows="4"
+                placeholder="Describe the outcome of the investigation..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="recoveryInformation">
+                Recovery / Collection Information
+            </label>
+
+            <textarea
+                id="recoveryInformation"
+                rows="4"
+                placeholder="Tell the reporter how and where they can recover their item, if applicable..."
+            ></textarea>
+
+        </div>
+
+
+        <div>
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Save Investigation Update
+            </button>
+
+
+            <button
+                type="button"
+                id="cancelInvestigationUpdate"
+                class="login-btn"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<!-- ==========================================
+     REPORTER QUESTION FORM
+=========================================== -->
+
+<div
+    id="reporterQuestionPanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                REPORTER COMMUNICATION
+            </span>
+
+            <h2>
+                Ask Reporter a Question
+            </h2>
+
+            <p>
+                Send a question to the person who submitted
+                this incident report.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <form id="reporterQuestionForm">
+
+        <input
+            type="hidden"
+            id="questionReportId"
+        >
+
+
+        <div class="form-group">
+
+            <label for="reporterQuestion">
+                Question
+            </label>
+
+            <textarea
+                id="reporterQuestion"
+                rows="5"
+                placeholder="Enter your question for the reporter..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div>
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Send Question
+            </button>
+
+
+            <button
+                type="button"
+                id="cancelReporterQuestion"
+                class="login-btn"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</section>
+<!-- ==========================================
+     REPORTER REPLY DETAILS
+=========================================== -->
+
+<div
+    id="reporterReplyPanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                REPORTER RESPONSE
+            </span>
+
+            <h2>
+                Reporter Reply
+            </h2>
+
+            <p>
+                View the response provided by the reporter.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="investigation-details">
+
+        <div class="form-group">
+
+            <label>
+                Security Question
+            </label>
+
+            <p id="securityQuestionForOfficer">
+                —
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Reporter Reply
+            </label>
+
+            <p id="reporterReplyForOfficer">
+                —
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="closeReporterReply"
+            class="login-btn"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     COMMUNICATION HISTORY
+=========================================== -->
+
+<div
+    id="communicationHistoryPanel"
+    class="dashboard-section"
+    style="display: none;"
+>
+    <div class="section-header">
+        <div>
+            <span class="section-label">
+                COMMUNICATION HISTORY
+            </span>
+
+            <h2>
+                Communication History
+            </h2>
+
+            <p>
+                View all questions and replies exchanged
+                about this incident report.
+            </p>
+        </div>
+    </div>
+
+    <div
+        id="communicationHistoryContent"
+        class="investigation-details"
+    >
+    </div>
+
+    <button
+        type="button"
+        id="closeCommunicationHistory"
+        class="login-btn"
+    >
+        Close
+    </button>
+</div>
+<!-- Request Investigation Update Panel -->
+<div id="requestUpdatePanel" style="display:none; margin-top:24px; padding:20px; background:#f8f9fa; border-radius:8px; border:1px solid #dee2e6;">
+    <h3>Request Investigation Update</h3>
+    <p>Enter your question or request for the security team:</p>
+    <input type="hidden" id="requestUpdateReportId">
+    <div class="form-group">
+        <textarea id="requestUpdateMessage" rows="4" style="width:100%;" placeholder="Type your request here..."></textarea>
+    </div>
+    <div style="margin-top:12px;">
+        <button type="button" class="investigation-btn" id="submitRequestUpdateBtn">Submit Request</button>
+        <button type="button" class="investigation-btn" id="cancelRequestUpdateBtn" style="margin-left:8px;">Cancel</button>
+    </div>
+</div>
+<!-- Respond to Update Request Panel (for Security) -->
+<div id="respondUpdatePanel" style="display:none; margin-top:24px; padding:20px; background:#f8f9fa; border-radius:8px; border:1px solid #dee2e6;">
+    <h3>Respond to Update Request</h3>
+    
+    <div style="margin-bottom:16px; padding:12px; background:#fff; border-left:4px solid #0d6efd;">
+        <strong>Reporter’s Request:</strong>
+        <p id="reporterRequestText" style="margin:8px 0 0 0; white-space:pre-wrap;"></p>
+    </div>
+
+    <input type="hidden" id="respondUpdateReportId">
+    
+    <div class="form-group">
+        <label for="securityResponseMessage"><strong>Your Response:</strong></label>
+        <textarea id="securityResponseMessage" rows="5" style="width:100%; margin-top:6px;" placeholder="Type your response here..."></textarea>
+    </div>
+
+    <div style="margin-top:14px;">
+        <button type="button" class="investigation-btn" id="submitSecurityResponseBtn">Send Response</button>
+        <button type="button" class="investigation-btn" id="cancelSecurityResponseBtn" style="margin-left:8px;">Cancel</button>
+    </div>
+</div>
+        <!-- ==========================================
+             PROFILE
+        =========================================== -->
+
+        <section
+            id="profile"
+            class="dashboard-section page-section"
+        >
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        My Profile
+                    </h2>
+
+                    <p>
+                        View and manage your CampusSafe
+                        account information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE CARD -->
+
+            <div class="profile-card">
+
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+
+                <div class="profile-details">
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Full Name
+                        </span>
+
+                        <strong id="profileName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Email Address
+                        </span>
+
+                        <strong id="profileEmail">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Phone Number
+                        </span>
+
+                        <strong id="profilePhone">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Account Type
+                        </span>
+
+                        <strong id="profileRole">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Department / Unit
+                        </span>
+
+                        <strong id="profileDepartment">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Identification
+                        </span>
+
+                        <strong id="profileIdentification">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>
+                            Level / Position
+                        </span>
+
+                        <strong id="profileLevel">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="editProfileBtn"
+                    class="edit-profile-btn"
+                >
+                    ✏️ Edit Profile
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================
+                 EDIT PROFILE FORM
+            =================================== -->
+
+            <div
+                id="editProfileSection"
+                class="edit-profile-section"
+                style="display: none;"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            ACCOUNT SETTINGS
+                        </span>
+
+                        <h3>
+                            Edit Profile
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <form id="editProfileForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="profile-form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="editFirstName">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="editFirstName"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="editLastName">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="editLastName"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="editEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="editPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="editPhone"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- ACCOUNT TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="editRole">
+                            Account Type
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editRole"
+                            readonly
+                        >
+
+                    </div>
+
+
+
+                    <!-- DYNAMIC ROLE DETAILS -->
+
+                    <div
+                        id="editRoleFields"
+                        class="role-fields"
+                    >
+
+                        <!-- JavaScript fills this section -->
+
+                    </div>
+
+
+
+                    <hr>
+
+
+
+                    <!-- CHANGE PASSWORD -->
+
+                    <div class="password-change-heading">
+
+                        <h3>
+                            Change Password
+                        </h3>
+
+                        <p>
+                            Leave these fields empty if you
+                            do not want to change your password.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CURRENT PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="currentPassword">
+                            Current Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="currentPassword"
+                                autocomplete="current-password"
+                                placeholder="Enter current password"
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="currentPassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- NEW PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="editNewPassword">
+                            New Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="editNewPassword"
+                                autocomplete="new-password"
+                                placeholder="Enter new password"
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="editNewPassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRM NEW PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="editConfirmPassword">
+                            Confirm New Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="editConfirmPassword"
+                                autocomplete="new-password"
+                                placeholder="Confirm new password"
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="editConfirmPassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD REQUIREMENTS -->
+
+                    <div
+                        id="editPasswordRequirements"
+                        class="password-requirements"
+                    >
+
+                        <div id="editReqLength">
+                            ✗ At least 8 characters
+                        </div>
+
+                        <div id="editReqUppercase">
+                            ✗ At least one uppercase letter
+                        </div>
+
+                        <div id="editReqLowercase">
+                            ✗ At least one lowercase letter
+                        </div>
+
+                        <div id="editReqNumber">
+                            ✗ At least one number
+                        </div>
+
+                        <div id="editReqSpecial">
+                            ✗ At least one special character
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="profile-buttons">
+
+
+                        <button
+                            type="submit"
+                            class="save-profile-btn"
+                        >
+                            Save Changes
+                        </button>
+
+
+                        <button type="button" id="cancelEditBtn" class="cancel-profile-btn">Cancel</button>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+            
+<!-- ==========================================
+     SECURITY QUESTIONS SETTINGS
+=========================================== -->
+
+<div class="edit-profile-section security-settings-section">
+<div class="section-header">
+<div>
+<span class="section-label">ACCOUNT SECURITY</span>
+<h3>Security Questions</h3>
+<p>Manage the questions used to recover your account if you forget your password.</p>
+</div>
+</div>
+<form id="editSecurityQuestionsForm">
+<div class="form-group">
+<label for="securitySettingsCurrentPassword">Confirm Your Current Password</label>
+<input type="password" id="securitySettingsCurrentPassword" autocomplete="current-password" placeholder="Enter your current password" required>
+</div>
+<hr>
+<div class="form-group">
+<label for="editSecurityQuestion1">Security Question 1 (Required)</label>
+<select id="editSecurityQuestion1" required>
+<option value="">Choose a security question</option>
+<option value="firstSchool">What is the name of your first school?</option>
+<option value="birthCity">In which city were you born?</option>
+<option value="childhoodFriend">What is the name of your childhood best friend?</option>
+<option value="favoriteTeacher">What is the name of your favourite teacher?</option>
+<option value="favoriteFood">What is your favourite food?</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editSecurityAnswer1">Answer to Question 1</label>
+<div class="password-wrapper">
+<input type="password" id="editSecurityAnswer1" placeholder="Enter your answer" required>
+<button type="button" class="toggle-security-answer" data-target="editSecurityAnswer1">Show</button>
+</div>
+</div>
+<hr>
+<div class="form-group">
+<label for="editSecurityQuestion2">Security Question 2 (Optional)</label>
+<select id="editSecurityQuestion2">
+<option value="">No second question</option>
+<option value="firstSchool">What is the name of your first school?</option>
+<option value="birthCity">In which city were you born?</option>
+<option value="childhoodFriend">What is the name of your childhood best friend?</option>
+<option value="favoriteTeacher">What is the name of your favourite teacher?</option>
+<option value="favoriteFood">What is your favourite food?</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editSecurityAnswer2">Answer to Question 2</label>
+<div class="password-wrapper">
+<input type="password" id="editSecurityAnswer2" placeholder="Leave blank if not using Question 2">
+<button type="button" class="toggle-security-answer" data-target="editSecurityAnswer2">Show</button>
+</div>
+</div>
+<hr>
+<div class="form-group">
+<label for="editSecurityQuestion3">Security Question 3 (Optional)</label>
+<select id="editSecurityQuestion3">
+<option value="">No third question</option>
+<option value="firstSchool">What is the name of your first school?</option>
+<option value="birthCity">In which city were you born?</option>
+<option value="childhoodFriend">What is the name of your childhood best friend?</option>
+<option value="favoriteTeacher">What is the name of your favourite teacher?</option>
+<option value="favoriteFood">What is your favourite food?</option>
+</select>
+</div>
+<div class="form-group">
+<label for="editSecurityAnswer3">Answer to Question 3</label>
+<div class="password-wrapper">
+<input type="password" id="editSecurityAnswer3" placeholder="Leave blank if not using Question 3">
+<button type="button" class="toggle-security-answer" data-target="editSecurityAnswer3">Show</button>
+</div>
+</div>
+<p>Choose different questions. If you leave an optional question blank, it will not be saved. Make sure you remember your answers.</p>
+<div class="profile-buttons">
+<button type="submit" class="save-profile-btn">Save Security Questions</button>
+<button type="button" class="cancel-profile-btn" id="cancelSecurityQuestionsBtn">Clear Changes</button>
+</div>
+</form>
+</div>
+
+<!-- ==========================================
+     DELETE ACCOUNT
+=========================================== -->
+
+<div class="delete-account-section">
+
+    <h3>Delete My Account</h3>
+
+    <p>
+        We're sorry to see you go. If you decide
+        to leave CampusSafe, please tell us why.
+        Your feedback can help us improve.
+    </p>
+
+    <button
+        type="button"
+        id="showDeleteAccountBtn"
+        class="delete-account-btn"
+    >
+        Delete My Account
+    </button>
+
+    <div
+        id="deleteAccountFormSection"
+        style="display: none;"
+    >
+
+        <form id="deleteAccountForm">
+
+            <div class="form-group">
+
+                <label for="deleteAccountReason">
+                    Why are you leaving CampusSafe?
+                </label>
+
+                <select
+                    id="deleteAccountReason"
+                    required
+                >
+                    <option value="">
+                        Select a reason
+                    </option>
+
+                    <option value="Privacy concerns">
+                        Privacy concerns
+                    </option>
+
+                    <option value="Difficult to use">
+                        The website is difficult to use
+                    </option>
+
+                    <option value="Technical problems">
+                        Technical problems
+                    </option>
+
+                    <option value="Missing features">
+                        Missing features
+                    </option>
+
+                    <option value="No longer needed">
+                        I no longer need the account
+                    </option>
+
+                    <option value="Other">
+                        Other reason
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="deleteAccountFeedback">
+                    Tell us more (optional)
+                </label>
+
+                <textarea
+                    id="deleteAccountFeedback"
+                    rows="4"
+                    maxlength="1000"
+                    placeholder="Share your experience or suggest an improvement..."
+                ></textarea>
+
+            </div>
+
+            <p>
+                Deleting your account will sign you out.
+                This action cannot be undone.
+            </p>
+
+            <div class="profile-buttons">
+
+                <button
+                    type="submit"
+                    class="delete-account-btn"
+                >
+                    Confirm Account Deletion
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelDeleteAccountBtn"
+                    class="cancel-profile-btn"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</section>
+
+        <!-- ==========================================
+             REPORT INCIDENT
+        =========================================== -->
+
+        <section
+            id="report"
+            class="dashboard-section page-section"
+        >
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SECURITY REPORT
+                    </span>
+
+                    <h2>
+                        Report an Incident
+                    </h2>
+
+                    <p>
+                        Provide accurate information about
+                        the incident you want to report.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IMPORTANT NOTICE -->
+
+            <div class="report-notice">
+
+                <strong>
+                    Before submitting a report
+                </strong>
+
+                <p>
+                    Please provide accurate information.
+                    In an emergency or situation requiring
+                    immediate assistance, contact the
+                    appropriate campus security authority
+                    directly.
+                </p>
+
+            </div>
+
+
+
+            <!-- REPORT FORM -->
+
+            <form id="incidentForm">
+
+
+                <!-- INCIDENT TYPE -->
+
+                <div class="form-group">
+
+                    <label for="incidentType">
+                        Incident Type
+                    </label>
+
+                    <select
+                        id="incidentType"
+                        required
+                    >
+
+                        <option value="">
+                            Select incident type
+                        </option>
+
+                        <option value="Theft">
+                            Theft
+                        </option>
+
+                        <option value="Suspicious Activity">
+                            Suspicious Activity
+                        </option>
+
+                        <option value="Vandalism">
+                            Vandalism
+                        </option>
+
+                        <option value="Harassment">
+                            Harassment
+                        </option>
+
+                        <option value="Fighting">
+                            Fighting
+                        </option>
+
+                        <option value="Fire">
+                            Fire
+                        </option>
+
+                        <option value="Accident">
+                            Accident
+                        </option>
+
+                        <option value="Missing Property">
+                            Missing Property
+                        </option>
+
+                        <option value="Unauthorized Access">
+                            Unauthorized Access
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Where did the incident happen?"
+                        maxlength="150"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DATE AND TIME -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="incidentDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="incidentDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="incidentTime">
+                            Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="incidentTime"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        maxlength="1500"
+                        placeholder="Describe what happened. Include important details such as what you saw, what happened and when it occurred."
+                        required
+                    ></textarea>
+
+                    <small class="field-hint">
+                        Provide as much accurate information as possible.
+                    </small>
+
+                </div>
+
+
+
+                <!-- ADDITIONAL INFORMATION -->
+
+                <div class="form-group">
+
+                    <label for="additionalInfo">
+                        Additional Information
+                    </label>
+
+                    <textarea
+                        id="additionalInfo"
+                        rows="4"
+                        maxlength="1000"
+                        placeholder="Add any other information that may help security personnel."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="login-btn report-submit-btn"
+                >
+                    Submit Incident Report
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         LOGIN PROTECTION
+    =========================================== -->
+
+    <script>
+
+        const isLoggedIn =
+            localStorage.getItem("isLoggedIn");
+
+        if (isLoggedIn !== "true") {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="login.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - CampusSafe</title>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="login-page">
+<div class="login-container">
+<div class="login-info">
+<div class="info-content">
+<div class="brand-mark">CS</div>
+<h1>CampusSafe</h1>
+<p>Securely access your CampusSafe account to report, track and manage campus security incidents.</p>
+<ul class="info-list">
+<li>Report Campus Incidents</li>
+<li>Track Your Reports</li>
+<li>Monitor Security Activities</li>
+<li>Role-Based Access</li>
+<li>Support a Safer Campus</li>
+</ul>
+</div>
+</div>
+<div class="login-panel">
+<div class="login-box">
+<div class="login-header">
+<span class="form-label-top">CAMPUSSAFE ACCOUNT</span>
+<h2>Login</h2>
+<p>Enter your account details to continue.</p>
+</div>
+<form id="loginForm">
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" autocomplete="username" placeholder="Enter your email address" required>
+</div>
+<div class="form-group">
+<label for="password">Password</label>
+<div class="password-wrapper">
+<input type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+<button type="button" class="toggle-password" data-target="password" aria-label="Show password">👁</button>
+</div>
+</div>
+<div class="form-group">
+<label for="role">Account Type</label>
+<select id="role" name="role" required>
+<option value="">Select your account type</option>
+<option value="student">Student</option>
+<option value="academicStaff">Academic Staff</option>
+<option value="nonAcademicStaff">Non-Academic Staff</option>
+<option value="security">Security Personnel</option>
+<option value="visitor">Visitor</option>
+</select>
+</div>
+<div class="remember-row">
+<label class="remember-me">
+<input type="checkbox" id="rememberMe" name="rememberMe">
+<span>Remember me</span>
+</label>
+<a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+</div>
+<button type="submit" class="login-btn">Login to CampusSafe</button>
+</form>
+<p class="register-link">Don't have a CampusSafe account? <a href="register.html">Create an account</a></p>
+<a href="index.html" class="back-home">← Back to Home</a>
+</div>
+</div>
+</div>
+</div>
+<script src="login.js"></script>
+</body>
+</html>
